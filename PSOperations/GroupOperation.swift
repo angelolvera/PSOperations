@@ -21,7 +21,7 @@ import Foundation
     subsequent operations (still within the outer `GroupOperation`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-open class GroupOperation: Operation {
+open class GroupOperation: Operation, @unchecked Sendable {
     private let internalQueue = OperationQueue()
     private let startingOperation = Foundation.BlockOperation(block: {})
     private let finishingOperation = Foundation.BlockOperation(block: {})

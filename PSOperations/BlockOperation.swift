@@ -13,7 +13,7 @@ public typealias OperationBlock = (@escaping () -> Void) -> Void
 
 public typealias PSBlockOperation = BlockOperation
 /// A sublcass of `Operation` to execute a closure.
-open class BlockOperation: Operation {
+open class BlockOperation: Operation, @unchecked Sendable {
     private let block: OperationBlock?
 
     /**

@@ -83,7 +83,7 @@ public struct Capability<C: CapabilityType>: OperationCondition {
     }
 }
 
-private class AuthorizeCapability<C: CapabilityType>: Operation {
+private class AuthorizeCapability<C: CapabilityType>: Operation, @unchecked Sendable {
     private let capability: C
 
     init(capability: C) {

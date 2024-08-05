@@ -12,7 +12,7 @@ extension EKEntityType: CapabilityType {
     public func requestStatus(_ completion: @escaping (CapabilityStatus) -> Void) {
         let status = EKEventStore.authorizationStatus(for: self)
         switch status {
-        case .authorized: completion(.authorized)
+        case .authorized, .fullAccess, .writeOnly: completion(.authorized)
         case .denied: completion(.denied)
         case .restricted: completion(.notAvailable)
         case .notDetermined: completion(.notDetermined)
